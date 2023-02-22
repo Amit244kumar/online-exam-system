@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/common_header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/new_question.css' %}">
+    <script src="{% static 'js/form_validation.js'%}"></script>
+    <title>edit question</title>
+</head>
+<body>
+    <div class="menu">
+        <nav class="links">
+          <a href="http://localhost:8000/OTS/Home">home</a>
+          <a href="http://localhost:8000/OTS/new-question/">New</a>
+          <a href="http://localhost:8000/OTS/view-questions/">View all</a>
+        </nav>
+        <div class="heading">
+          <h1>edit question</h1>
+        </div>
+    </div>
+    <div id="form" class="menu">
+            <form action="http://localhost:8000/OTS/edit-save-question/" method="post" onsubmit="return validation()">
+                {% csrf_token %}
+                <input type="hidden" name="que_no" value="{{question.que_no}}">
+                <div class="title">question statement</div>
+                <div class="data"><textarea name="quetion" rows="5px">{{question.que}}</textarea></div>
+                <p id="question" class="error"></p>
+                <div class="title">optiona</div>
+                <div class="data"><input type="text" name="optiona" value="{{question.optiona}}" id="a"></div>
+                <p id="optiona" class="error"></p>
+                <div class="title">optionb</div>
+                <div class="data"><input type="text" name="optionb" value="{{question.optionb}}" id="b"></div>
+                <p id="optionb" class="error"></p>
+                <div class="title">optionc</div>
+                <div class="data"><input type="text" name="optionc" value="{{question.optionc}}" id="c"></div>
+                <p id="optionc" class="error"></p>
+                <div class="title">optiond</div>
+                <div class="data"><input type="text" name="optiond" value="{{question.optiond}}" id="d"></div>
+                <p id="optiond" class="error"></p>
+                <div class="title">Answer</div>
+                <div class="data">
+                    <select name="answer" id="select">
+                        <option value="e">select answer</option>
+                        <option value="a" {% if question.answer == "a" %} selected {% endif %}>a</option>
+                        <option value="b" {% if question.answer == "b" %} selected {% endif %}>b</option>
+                        <option value="c" {% if question.answer == "c" %} selected {% endif %}>c</option>
+                        <option value="d" {% if question.answer == "d" %} selected {% endif %}>d</option>
+                    </select>
+                </div>
+                <div id="submit" ><input type="submit" value="update" ></div>
+                <p id="answer" class="error" ></p>
+            </form>
+    </div>
+</body>
+</html>

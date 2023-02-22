@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/common_header.css'%}">
+    <title>test result</title>
+</head>
+<body>
+    <div class="menu" style="height:250px">
+        <nav class="links">
+              <!-- MENU FOR ADMIN -->
+             {% if request.session.username == 'Admin' %}    
+                 <a href="http://localhost:8000/OTS/new-question/">New</a>
+                 <a href="http://localhost:8000/OTS/view-questions/">View all</a>
+                 <a href="http://localhost:8000/OTS/logout/">Logout</a>
+            {% else %}
+                  <!-- MENU FOR LEANERS -->
+                  <a href="http://localhost:8000/OTS/Home/">home</a>
+                  <a href="http://localhost:8000/OTS/start-test/">start test</a>
+                  <a href="http://localhost:8000/OTS/logout">Logout</a>
+            {% endif %}    
+           
+        </nav>
+        <div class="hea ding">
+          <h1>test result</h1>
+        </div>
+    
+     <table style="position:relative; left:40px; font-size:20px;">
+        <tr style="color:chocolate">
+            <th >total questions </th>
+            <td>{{total}}</td>
+        </tr>
+        <tr style="color:green;">
+            <th>total right </th>
+            <td>{{right}}</td>
+        </tr>
+        <tr style="color:red;">
+            <th>total wrong </th>
+            <td>{{wrong}}</td>
+        </tr>
+        <tr style="color:blue;">
+            <th>total attempt </th>
+            <td>{{attempt}}</td>
+        </tr>
+    </table>
+    </div>
+</body>
+</html>

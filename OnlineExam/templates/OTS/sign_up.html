@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/login_page.css'%}">
+    <script src="{% static 'js/sign_up_validation.js' %}"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+</head>
+<body>
+    <section id="form-box" style="height:370px">
+      <h1>signup</h1>
+        <div id="form"> 
+            <form action="http://localhost:8000/OTS/save-user/" method="post" onsubmit="return validate()">
+                {% csrf_token %}
+                <p >username</p>
+                <input type="text" name="username" autocomplete="off" id="username">
+                <p id="error1" style="font-size:15px; color:red"></p>
+                <p>password</p>
+                <input type="password" name="password" id="password">
+                <p id="error2" style="font-size:15px; color:red"></p>
+                <p>name</p>
+                <input type="text" name="realname" id="realname">
+                <p id="error3" style="font-size:15px; color:red"></p>
+                <input type="submit" value="Register" id="submit-button">
+                <a href="http://localhost:8000/OTS/login/">login</a>
+            </form>
+            <p style="font-size:15px; margin:2px; color:red">{{errmsg}}</p>
+        </div>
+    </section>
+    <!-- error message -->
+</body>
+</html>

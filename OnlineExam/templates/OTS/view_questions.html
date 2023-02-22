@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/common_header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/view_questions.css' %}">
+    <title>view questions</title>
+</head>
+<body>
+    <div class="menu">
+        <nav class="links">
+                 <!-- MENU FOR ADMIN -->
+            {% if request.session.username == 'Admin' %} 
+                 <a href="http://localhost:8000/OTS/Home">home</a>   
+                 <a href="http://localhost:8000/OTS/new-question/">New</a>
+                 <a href="http://localhost:8000/OTS/view-questions/">View all</a>
+                 <a href="http://localhost:8000/OTS/logout/">logout</a>
+            {% else %}
+                 <!-- MENU FOR LEANERS -->
+                 <a href="http://localhost:8000/OTS/start-test/">start test</a>
+                 <a href="http://localhost:8000/OTS/logout">logout</a>
+            {% endif %}    
+            
+        </nav>
+        <div class="heading">
+           <h1>view questions</h1>
+        </div>
+
+    </div>
+   <div id="table">
+       <table border="5" cellpadding="3" cellspacing="0" width="2">
+          <tr>
+            <th>que_no</th>
+            <th>question</th>
+            <th>optiona</th>
+            <th>optionb</th>
+            <th>optionc</th>
+            <th>optiond</th>
+            <th>answer</th>
+        </tr>
+        <tr>
+            {% for question in questions %}
+              <tr>
+                  <td>{{question.que_no}}</td>
+                  <td>{{question.que}}</td>
+                  <td>{{question.optiona}}</td>
+                  <td>{{question.optionb}}</td>
+                  <td>{{question.optionc}}</td>
+                  <td>{{question.optiond}}</td>
+                  <td style="text-align:center;">{{question.answer}}</td>
+                  <td><a href="http://localhost:8000/OTS/edit-question?que_no={{question.que_no}}"><button class="button">edit</button></a></td>
+                  <td><a href="http://localhost:8000/OTS/delete-question?que_no={{question.que_no}}"><button class="button">delete</button></a></td>
+              </tr>
+            {% endfor%}
+
+        </tr>
+     </table>
+   </div>
+</body>
+</html>

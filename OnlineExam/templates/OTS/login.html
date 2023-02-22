@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login_page.css'%}">
+    <script src="{% static 'js/login_validation.js' %}"></script>
+    <title>login</title>
+</head>
+<body>
+    <section id="form-box">
+      <h1>login to start test</h1>
+      <div id="form">
+      <form action="http://localhost:8000/OTS/login-validation/" method="post" onsubmit="return validate() ">
+          {% csrf_token %}
+                <p>username</p>
+                <input type="type" name="username" id="username"><br>
+                <p id="error1" style="font-size:15px; color:red;"></p>
+                <p>password</p>
+                <input type="password" name="password" id="password"><br>
+                <p id="error2" style="font-size:15px; color:red;"></p>
+                <input type="submit" value="login" id="submit-button">
+                <a href="http://localhost:8000/OTS/sign-up/" >sign up to login</a>
+      </form>
+        
+         <a href="http://localhost:8000/OTS/forgot-password">forgot password?</a>
+      </div>
+    </section>
+</body>
+</html>

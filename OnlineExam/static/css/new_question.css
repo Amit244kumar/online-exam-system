@@ -1,0 +1,65 @@
+.title{
+    position: relative;
+    text-align: left;
+    left:5px;
+    padding: 15px;
+    color:red;
+    font-size: 23px;
+    width:200px;
+}
+.data{
+    position: relative;
+    left:-50px;
+
+}
+.data textarea{
+    border:solid #ff00007a;
+    border-radius: 10px;
+    width: 450px;
+    font-size:18px;
+}
+.data input{
+    border:solid #ff00007a;
+    border-radius: 10px;
+    width: 450px;
+    height: 25px;
+    font-size: 15px;
+}
+.data select{
+    font:15px;
+    position: relative;
+    left:70px;
+    border:solid #ff00007a;
+    border-radius: 10px;
+    width: 120px;
+    height: 25px;
+    font-size: 15px;
+    float: left;
+}
+#submit input{
+
+    height: 27px;
+    border-radius: 10px;
+    background-color:red;
+    width: 80px;
+    position:relative;
+    left:-170px;
+    top:-2px;
+    box-shadow: 0px 0px 5px black;
+    cursor: pointer;
+}
+#submit input:hover{
+   background-color: crimson;
+}
+#submit input:active{
+    background-color: crimson;
+    box-shadow: 2px 4px 5px gray; 
+ }
+#form{
+    height: 700px;
+    padding-bottom: 40px;
+}
+p{
+    color:red;
+    width: 200px;
+}
